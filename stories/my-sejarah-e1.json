@@ -64,6 +64,12 @@
       "anim": "bersambung",
       "title": "Bengkel, waktu malam",
       "text": false
+    },
+    "flywheel2": {
+      "type": "anim",
+      "anim": "flywheel_hidup",
+      "title": "Tahun 1886",
+      "caption": "Enjin hidup, kereta boleh bergerak"
     }
   },
   "lines": [
@@ -148,7 +154,7 @@
       "face": "happy",
       "listener": "neutral",
       "shot": "full",
-      "screen": "flywheel",
+      "screen": "flywheel2",
       "pause": 0.4,
       "camera": "none"
     },

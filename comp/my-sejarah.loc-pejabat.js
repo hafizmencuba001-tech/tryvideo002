@@ -8,7 +8,7 @@ import * as base from './s1-kotak.loc-pejabat.js';
 import { createFullScreen } from './my-sejarah.screen.js';
 export const screenOpts = base.screenOpts;
 
-const FULL_Z = 40, FULL_D = 5, FULL_FOV = 40, OVERSIZE = 1.02; // full-frame lines use no camera move, so the panel exactly fills the frame
+const FULL_Z = 40, FULL_D = 5, FULL_FOV = 40, OVERSIZE = 1.04; // full-frame lines use no camera move, so the panel exactly fills the frame
 
 export function build(ctx) {
   const L = base.build(ctx);
