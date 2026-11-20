@@ -28,8 +28,19 @@ export function build(ctx) {
   panel.position.set(0, 1.5, FULL_Z - FULL_D); panel.visible = false; panel.renderOrder = 10;
   world.add(panel);
   L.shots.full = { cam: { pos: [0, 1.5, FULL_Z], target: [0, 1.5, FULL_Z - 10], fov: FULL_FOV }, push: 0.02, coc: 0 };
+  // ---- staging for a professor and his assistant (instead of a boss and an intern) ----
+  L.shots.two = { ...L.shots.two, cam: { ...L.shots.two.cam, pos: [1.5, 1.85, 5.2], target: [1.0, 1.52, -1.5] } }; // a bit wider and right: the professor is no longer cut off
   const baseStage = L.stage;
-  L.stage = (shot, ...rest) => { const r = baseStage(shot, ...rest); if (shot === 'full') { r.showB = false; r.showI = false; } return r; };
+  L.stage = (shot, speaker, ...rest) => {
+    const r = baseStage(shot, speaker, ...rest);
+    if (shot === 'full') { r.showB = false; r.showI = false; return r; }
+    const B = r.B;
+    if (shot === 'wide') B.pos = [1.38, 0, -1.85]; // faces no longer overlap
+    // relaxed arms instead of the boss's hand on the hip; a lecturing hand while he talks
+    if (B.armL && B.armL.hip) B.armL = speaker === 'bos' ? { rest: [-0.75, 0, 0.18], bend: -1.25 } : { rest: [0.05, 0, 0.16], bend: -0.25 };
+    if (B.armR && B.armR.hip) B.armR = { rest: [0.05, 0, -0.16], bend: -0.25 };
+    return r;
+  };
 
   const baseUpdate = L.update.bind(L);
   L.update = (t, S) => {

@@ -211,7 +211,7 @@ export function makeBos() {
 export function makeIntern() {
   // ---- look knobs ----
   const CARDIGAN = '#1f8f86', CARDIGAN_D = '#166d66', SHIRT = '#f4f6fb', HAIR = '#1c1410', SKIN = '#d29d74', LANYARD = '#d4202f';
-  const SIZE = 1.0;
+  const SIZE = 1.12;
 
   const root = new THREE.Group();
   const fig = new THREE.Group(); fig.scale.setScalar(SIZE); root.add(fig);
