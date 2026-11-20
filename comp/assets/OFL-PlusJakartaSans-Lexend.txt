@@ -1,0 +1,1 @@
+Plus Jakarta Sans and Lexend: SIL Open Font License 1.1 (https://openfontlicense.org). Sources: Google Fonts via @expo-google-fonts/plus-jakarta-sans and @expo-google-fonts/lexend. Plus Jakarta Sans: Copyright 2020 The Plus Jakarta Sans Project Authors (https://github.com/tokotype/PlusJakartaSans).

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ms"><head><meta charset="utf-8">
+<title>s1-kotak: Pejabat (box robots, dark neon office)</title>
+<meta name="thumb" content="0.5">
+<link rel="stylesheet" href="base.css">
+<style>
+  #stage { background: #05071a; }
+  #gl { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+  .cap { position: absolute; left: 70px; width: 940px; bottom: 222px; padding: 24px 36px 30px; border-radius: 20px;
+    background: linear-gradient(180deg, rgba(8,12,30,.80), rgba(4,6,18,.88));
+    -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 2px solid #19e3ff;
+    box-shadow: 0 0 18px rgba(25,227,255,.60), 0 0 56px rgba(25,227,255,.26), inset 0 0 26px rgba(25,227,255,.13), 0 18px 50px rgba(0,0,0,.5); }
+  .cap .tag { font: 700 29px/1 Menlo, 'SF Mono', monospace; letter-spacing: .26em; color: #19e3ff; text-shadow: 0 0 14px rgba(25,227,255,.85); margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
+  .cap .tag::before { content: ''; width: 14px; height: 14px; background: #19e3ff; box-shadow: 0 0 14px #19e3ff; }
+  .cap .line { font: 800 66px/1.14 'Avenir Next', 'Avenir', 'Helvetica Neue', sans-serif; color: #fff; letter-spacing: -0.005em; text-shadow: 0 2px 22px rgba(25,227,255,.35); text-wrap: balance; }
+  .cap.bos { border-color: #ff2fb4; box-shadow: 0 0 18px rgba(255,47,180,.55), 0 0 56px rgba(255,47,180,.22), inset 0 0 26px rgba(255,47,180,.10), 0 18px 50px rgba(0,0,0,.5); }
+  .cap.bos .tag { color: #ff6fd0; text-shadow: 0 0 14px rgba(255,47,180,.85); }
+  .cap.bos .tag::before { background: #ff2fb4; box-shadow: 0 0 14px #ff2fb4; }
+</style>
+<script type="importmap">{"imports":{"three":"./lib/three/three.module.js"}}</script>
+<style>/* no captions: reels are clean (owner 2026-10-16) */ .cap, #cap, #cap1, #cap2, #cap-wide, #cap-close { display: none !important; }</style>
+</head><body>
+<div id="stage">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div class="cap" id="cap1"><div class="tag">BOS RAHMAN</div><div class="line">Saya kata buat laporan ringkas.</div></div>
+  <div class="cap" id="cap2"><div class="tag">INTERN-3</div><div class="line">Siap, bos. Satu perkataan.</div></div>
+</div>
+<script src="engine.js"></script>
+<script type="module" src="s1-kotak.js"></script>
+</body></html>

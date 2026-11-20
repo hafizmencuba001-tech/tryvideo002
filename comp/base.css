@@ -1,0 +1,13 @@
+@font-face { font-family: 'Jakarta'; src: url(assets/PlusJakartaSans-ExtraBold.ttf); font-weight: 800; }
+@font-face { font-family: 'Jakarta'; src: url(assets/PlusJakartaSans-Bold.ttf); font-weight: 700; }
+@font-face { font-family: 'Lexend'; src: url(assets/Lexend-Regular.ttf); font-weight: 400; }
+@font-face { font-family: 'Lexend'; src: url(assets/Lexend-SemiBold.ttf); font-weight: 600; }
+
+:root {
+  --navy: #172A6E; --navy2: #0F1D52; --orange: #F46A36; --orangeD: #C94E1F; --cream: #FAF6EF; --paper: #FFFDF8;
+  --ink: #172A6E; --slate: #2A3340; --teal: #2FB9AE; --green: #5CBF5A; --red: #E85C54; --yellow: #F4C12E; --purple: #8A5BC2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+body { font-family: 'Lexend', sans-serif; -webkit-font-smoothing: antialiased; }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; }

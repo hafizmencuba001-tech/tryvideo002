@@ -1,0 +1,38 @@
+{
+  "_readme": [
+    "Voices per character. The engine merges this file with library/<style-id>/voices.json of every installed style (this file wins).",
+    "To change one character's voice, add just that character here under \"characters\", e.g. \"s10_oyen\": { \"elevenlabs_voice_id\": \"...\" }. Only the fields you give are replaced.",
+    "elevenlabs_voice_id: the ElevenLabs voice used when VOICE_PROVIDER=elevenlabs. Replace it with any voice id from your ElevenLabs account:",
+    "  elevenlabs.io > Voices > pick a voice (or add one from the Voice Library, e.g. filter Language = Malay) > the three-dot menu > Copy voice ID.",
+    "  elevenlabs_voice_name is only a label for humans. The defaults are ElevenLabs premade voices (available to every account); they speak Malay with an English-leaning accent, a Malay voice from the Voice Library sounds more natural.",
+    "free: macOS 'say' voice name, speed in words per minute, pitch shift in semitones. On Windows only rate and pitch are used (any installed voice).",
+    "Gemini voices (voice name + style sentence) live in cast.json and library/<style-id>/cast.json. Change a Gemini voice there.",
+    "After changing a voice, only the lines of that character are regenerated."
+  ],
+  "elevenlabs": {
+    "model_id": "eleven_multilingual_v2",
+    "voice_settings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.3,
+      "use_speaker_boost": true
+    }
+  },
+  "gemini": {
+    "default_model": "gemini-3.1-flash-tts-preview",
+    "models": {},
+    "_note": "Each Gemini model has its own free daily quota (about 100 requests/day for gemini-3.1-flash-tts-preview). A style can point at another TTS model with \"gemini\": {\"models\": {\"<style-id>\": \"<model>\"}} in its library/<style-id>/voices.json."
+  },
+  "premade_elevenlabs_voices": {
+    "Roger": "CwhRBWXzGAHq8TQ4Fs17",
+    "Sarah": "EXAVITQu4vr4xnSDxMaL",
+    "Laura": "FGY2WhTYpPnrIDTdsKH5",
+    "Charlie": "IKne3meq5aSn9XLyUdCD",
+    "George": "JBFqnCBsd6RMkjVDRZzb",
+    "Callum": "N2lVS1w4EtoT3dr4eOWO",
+    "River": "SAz9YHcvj6GT2YYXdXww",
+    "Harry": "SOYHLrjzK2X1ezoPC6cr",
+    "Liam": "TX3LPaxmHKxFdv7VOQHJ"
+  },
+  "characters": {}
+}

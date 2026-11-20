@@ -1,0 +1,128 @@
+{
+  "id": "s1-e1",
+  "setup": "s1-kotak",
+  "title": "Ringkas",
+  "location": "pejabat",
+  "location_desc": "Pejabat malam (set sedia ada): meja, monitor besar, kabinet + printer, tingkap bandar, jam 11:48 PM.",
+  "screen_prop": "monitor",
+  "lesson": "AI ikut arahan bulat-bulat: 'ringkas' tanpa had panjang = satu perkataan.",
+  "screens": {
+    "blank": {
+      "type": "doc",
+      "title": "Laporan Suku Ketiga",
+      "body": ""
+    },
+    "rugi": {
+      "type": "doc",
+      "title": "Laporan Suku Ketiga",
+      "body": "Rugi."
+    },
+    "panjang": {
+      "type": "doc",
+      "title": "Laporan Suku Ketiga",
+      "body": "Rugi. Rugi yang amat. Rugi pada Julai, rugi pada Ogos, rugi pada September. Kerugian ini berpunca daripada perbelanjaan pejabat, terutamanya bil elektrik selepas jam 11 malam...",
+      "meta": "Muka 1 daripada 214"
+    },
+    "rugi2": {
+      "type": "doc",
+      "title": "Laporan Suku Ketiga (ringkas)",
+      "body": "Rugi."
+    }
+  },
+  "lines": [
+    {
+      "who": "bos",
+      "text": "Intern, buat laporan suku ketiga. Ringkas.",
+      "delivery": "tired, rushed",
+      "face": "neutral",
+      "listener": "happy",
+      "shot": "wide",
+      "screen": "blank",
+      "action": "point_screen",
+      "pause": 0.3
+    },
+    {
+      "who": "intern",
+      "text": "Siap, bos!",
+      "delivery": "instant, very proud",
+      "face": "happy",
+      "listener": "neutral",
+      "shot": "intern",
+      "screen": "rugi",
+      "action": "type",
+      "pause": 0.4
+    },
+    {
+      "who": "bos",
+      "text": "Satu perkataan je? Rugi?",
+      "delivery": "disbelieving, slow",
+      "face": "shocked",
+      "listener": "happy",
+      "shot": "ots_screen",
+      "screen": "rugi",
+      "pause": 0.3
+    },
+    {
+      "who": "intern",
+      "text": "Bos kata ringkas. Itu paling ringkas.",
+      "delivery": "matter-of-fact, cheerful",
+      "face": "happy",
+      "listener": "annoyed",
+      "shot": "two",
+      "screen": "rugi",
+      "pause": 0.3
+    },
+    {
+      "who": "bos",
+      "text": "Panjangkan sikit!",
+      "delivery": "loud, exasperated",
+      "face": "annoyed",
+      "listener": "neutral",
+      "shot": "bos",
+      "screen": "rugi",
+      "action": "slam_desk",
+      "pause": 0.2
+    },
+    {
+      "who": null,
+      "dur": 1.8,
+      "beat": "printer starts printing endlessly; paper piles up; boss stares at it",
+      "face": "shocked",
+      "listener": "happy",
+      "shot": "wide",
+      "screen": "panjang",
+      "action": "printer_spew"
+    },
+    {
+      "who": "intern",
+      "text": "Dua ratus empat belas muka surat. Nak saya bacakan?",
+      "delivery": "helpful, eager",
+      "face": "happy",
+      "listener": "shocked",
+      "shot": "intern",
+      "screen": "panjang",
+      "pause": 0.4
+    },
+    {
+      "who": "bos",
+      "text": "Tak payah. Ringkaskan balik.",
+      "delivery": "defeated, quiet",
+      "face": "annoyed",
+      "listener": "happy",
+      "shot": "two",
+      "screen": "panjang",
+      "pause": 0.5
+    },
+    {
+      "who": "intern",
+      "text": "Rugi.",
+      "delivery": "proud, crisp, beat of silence before",
+      "face": "happy",
+      "listener": "annoyed",
+      "shot": "ots_screen",
+      "screen": "rugi2",
+      "action": "type",
+      "pause": 1.0
+    }
+  ]
+}

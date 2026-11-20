@@ -1,0 +1,6 @@
+node_modules/
+.env
+out/
+comp/vo/
+comp/stories/
+comp/s*-e[0-9]*.html
