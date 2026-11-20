@@ -6,6 +6,22 @@
 
 > Semak dulu nama ni belum dipakai di TikTok, YouTube dan Instagram sebelum daftar (contoh: @garajsejarah, @historygarage).
 
+## Bio channel
+
+**TikTok** (had 80 aksara):
+> 🔧 Sejarah kereta, satu blok demi satu blok. Bersama Prof. Hamzah & Dr. Danial
+
+**Instagram** (had 150 aksara):
+> 🔧 Sejarah automotif dalam 90 saat
+> 🎓 Bersama Prof. Hamzah & Dr. Danial
+> 🎬 Siri baru setiap minggu: Evolusi Starter Motor
+
+**YouTube** (penerangan channel):
+> Selamat datang ke Garaj Sejarah! Prof. Hamzah, pakar sejarah automotif, dan pembantunya Dr. Danial bongkar asal usul komponen kereta yang kita guna setiap hari: dari engkol tangan sampai butang Start. Video pendek, animasi 3D blok, fakta sebenar. Langgan untuk siri seterusnya!
+
+**Nama paparan (pilihan):** Garaj Sejarah · Prof. Hamzah
+**Handle:** @garajsejarah
+
 ## Watak tetap
 
 | Watak | Peranan | Perangai |
