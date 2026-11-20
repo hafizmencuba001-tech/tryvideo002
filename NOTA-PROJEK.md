@@ -1,5 +1,26 @@
 # Nota projek: Garaj Sejarah (untuk sesi Claude seterusnya)
 
+## Cara sambung projek (untuk pemilik projek)
+
+Kalau ingatan Claude penuh atau sesi tamat:
+1. Buka sesi baru dengan repo **tryvideo002** dan cawangan **claude/blocky-3d-art-style-49qp0b**.
+2. Taip: **"Baca NOTA-PROJEK.md dan sambung projek Garaj Sejarah"**.
+
+Claude akan baca nota ni dan tahu semua keputusan, fail dan status projek.
+
+**Backup:**
+| Apa | Di mana |
+|---|---|
+| Semua kod, watak, animasi, cerita, bunyi | GitHub, cawangan ini (setiap perubahan direkod dalam "commits") |
+| Logo, banner, kulit video, panduan jenama | Folder `branding/` |
+| Keputusan dan status projek | Fail ini (`NOTA-PROJEK.md`) |
+| Kunci Gemini | Tetapan persekitaran cloud (tidak disimpan dalam kod) |
+| Video MP4 | Tidak disimpan dalam GitHub. Simpan sendiri dalam telefon atau Google Drive selepas render. |
+
+**Salinan tambahan:** dalam GitHub, butang hijau **Code**, kemudian **Download ZIP**. Simpan dalam komputer atau Google Drive.
+
+---
+
 Baca fail ni dulu bila sambung projek. Pemilik projek bercakap Bahasa Melayu santai (panggil "awak"). Ikut `CLAUDE.md` untuk peraturan kit.
 
 ## Status semasa
