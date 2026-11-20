@@ -1,0 +1,60 @@
+{
+  "id": "s1-sejarah",
+  "setup": "s1-kotak",
+  "title": "Sejarah Komponen Kereta",
+  "location": "pejabat",
+  "screen_prop": "monitor",
+  "lesson": "Komponen kereta yang kita ambil mudah hari ini dulu menyakitkan: engkol, lap cermin guna tangan, tiada tali pinggang.",
+  "screens": {
+    "blank": {
+      "type": "doc",
+      "title": "Sejarah Komponen Kereta",
+      "body": ""
+    },
+    "starter": {
+      "type": "doc",
+      "title": "Sejarah Komponen Kereta",
+      "body": "1912: Starter elektrik. Sebelum ini: engkol tangan."
+    },
+    "wiper": {
+      "type": "doc",
+      "title": "Sejarah Komponen Kereta",
+      "body": "1912: Starter elektrik. Sebelum ini: engkol tangan. 1903: Wiper cermin. Sebelum ini: lap guna tangan."
+    },
+    "tali": {
+      "type": "doc",
+      "title": "Sejarah Komponen Kereta",
+      "body": "1912: Starter elektrik. Sebelum ini: engkol tangan. 1903: Wiper cermin. Sebelum ini: lap guna tangan. 1959: Tali pinggang 3 titik. Sebelum ini: pegang stereng.",
+      "meta": "Muka 1 daripada 3"
+    },
+    "ringkas": {
+      "type": "doc",
+      "title": "Sejarah Komponen Kereta (ringkas)",
+      "body": "Dulu: tangan patah. Sekarang: tekan butang."
+    }
+  },
+  "lines": [
+    { "who": "bos", "text": "Intern, esok saya bentang sejarah komponen kereta. Mula dengan starter.", "delivery": "tired, rushed",
+      "face": "neutral", "listener": "happy", "shot": "wide", "screen": "blank", "action": "point_screen", "pause": 0.3 },
+    { "who": "intern", "text": "Siap, bos! Tahun sembilan belas dua belas, starter elektrik.", "delivery": "instant, very proud",
+      "face": "happy", "listener": "neutral", "shot": "intern", "screen": "starter", "action": "type", "pause": 0.3 },
+    { "who": "bos", "text": "Sebelum tu, macam mana orang hidupkan kereta?", "delivery": "curious, impatient",
+      "face": "neutral", "listener": "happy", "shot": "bos", "screen": "starter", "pause": 0.3 },
+    { "who": "intern", "text": "Pusing engkol depan kereta, bos. Kalau tersilap, tangan patah.", "delivery": "cheerful, matter-of-fact",
+      "face": "happy", "listener": "shocked", "shot": "two", "screen": "starter", "camera": "zoom_punch", "pause": 0.3 },
+    { "who": "bos", "text": "Biar betul. Wiper pula?", "delivery": "disbelieving, slow",
+      "face": "shocked", "listener": "happy", "shot": "ots_screen", "screen": "starter", "pause": 0.2 },
+    { "who": "intern", "text": "Sembilan belas kosong tiga. Sebelum tu, pemandu lap cermin guna tangan.", "delivery": "helpful, eager",
+      "face": "happy", "listener": "shocked", "shot": "intern", "screen": "wiper", "action": "type", "pause": 0.3 },
+    { "who": "bos", "text": "Tali pinggang keledar?", "delivery": "nervous, quiet",
+      "face": "annoyed", "listener": "happy", "shot": "bos", "screen": "wiper", "pause": 0.2 },
+    { "who": "intern", "text": "Sembilan belas lima puluh sembilan. Sebelum tu, pegang stereng kuat-kuat.", "delivery": "proud, crisp",
+      "face": "happy", "listener": "shocked", "shot": "two", "screen": "tali", "action": "type", "pause": 0.3 },
+    { "who": null, "dur": 1.8, "beat": "boss rubs his eyes, staring at the long list of painful history",
+      "face": "shocked", "listener": "happy", "shot": "wide", "screen": "tali", "action": "rub_eyes" },
+    { "who": "bos", "text": "Okey. Ringkaskan jadi satu slaid.", "delivery": "defeated, quiet",
+      "face": "annoyed", "listener": "happy", "shot": "two", "screen": "tali", "pause": 0.4 },
+    { "who": "intern", "text": "Dulu, tangan patah. Sekarang, tekan butang.", "delivery": "proud, crisp, beat of silence before",
+      "face": "happy", "listener": "annoyed", "shot": "ots_screen", "screen": "ringkas", "action": "type", "pause": 1.0 }
+  ]
+}
