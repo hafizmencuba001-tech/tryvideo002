@@ -62,7 +62,7 @@
     "crankmalap": {
       "type": "anim",
       "anim": "bersambung",
-      "title": "Bengkel",
+      "title": "Bengkel, waktu malam",
       "text": false
     }
   },
@@ -105,10 +105,10 @@
       "delivery": "storytelling, grand",
       "face": "happy",
       "listener": "neutral",
-      "shot": "ots_screen",
+      "shot": "full",
       "screen": "y1886",
-      "action": "point_screen",
-      "pause": 0.3
+      "pause": 0.3,
+      "camera": "none"
     },
     {
       "who": "sejarah_asst",
@@ -126,10 +126,10 @@
       "delivery": "explaining, clear",
       "face": "neutral",
       "listener": "neutral",
-      "shot": "ots_screen",
+      "shot": "full",
       "screen": "flywheel",
-      "action": "point_screen",
-      "pause": 0.2
+      "pause": 0.2,
+      "camera": "none"
     },
     {
       "who": "sejarah_asst",
@@ -147,9 +147,10 @@
       "delivery": "warm, nodding",
       "face": "happy",
       "listener": "neutral",
-      "shot": "prof",
+      "shot": "full",
       "screen": "flywheel",
-      "pause": 0.4
+      "pause": 0.4,
+      "camera": "none"
     },
     {
       "who": "sejarah_prof",
@@ -157,10 +158,10 @@
       "delivery": "storytelling",
       "face": "neutral",
       "listener": "neutral",
-      "shot": "ots_screen",
+      "shot": "full",
       "screen": "garismasa",
-      "action": "point_screen",
-      "pause": 0.2
+      "pause": 0.2,
+      "camera": "none"
     },
     {
       "who": "sejarah_asst",
@@ -198,10 +199,10 @@
       "delivery": "serious, warning",
       "face": "annoyed",
       "listener": "shocked",
-      "shot": "screen",
+      "shot": "full",
       "screen": "bahaya",
-      "action": "point_screen",
-      "pause": 0.2
+      "pause": 0.2,
+      "camera": "none"
     },
     {
       "who": "sejarah_asst",
@@ -219,10 +220,10 @@
       "delivery": "thoughtful",
       "face": "neutral",
       "listener": "neutral",
-      "shot": "ots_screen",
+      "shot": "full",
       "screen": "soalan",
-      "action": "point_screen",
-      "pause": 0.2
+      "pause": 0.2,
+      "camera": "none"
     },
     {
       "who": "sejarah_asst",
@@ -250,12 +251,9 @@
       "beat": "sudden mechanical bang: the professor slams the desk, both jump",
       "face": "annoyed",
       "listener": "shocked",
-      "shot": "screen",
+      "shot": "full",
       "screen": "crankmalap",
-      "camera": [
-        "zoom_punch",
-        "handheld"
-      ],
+      "camera": "none",
       "lights": "dim",
       "action": "slam_desk"
     },
@@ -288,10 +286,21 @@
       "delivery": "panicked, funny",
       "face": "shocked",
       "listener": "happy",
-      "shot": "screen",
-      "screen": "bersambung",
-      "pause": 1.0,
+      "shot": "asst",
+      "screen": "crankmalap",
+      "pause": 0.3,
       "lights": "dim"
+    },
+    {
+      "who": null,
+      "dur": 2.4,
+      "beat": "end card: BERSAMBUNG - Part 2: Bahaya Crank Handle!",
+      "face": "neutral",
+      "listener": "shocked",
+      "shot": "full",
+      "screen": "bersambung",
+      "lights": "dim",
+      "camera": "none"
     }
   ]
 }

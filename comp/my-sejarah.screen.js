@@ -3,7 +3,7 @@
 // drawn on the monitor as a looping 2D animation. Scenes: dashboard, tajuk, kereta1886, flywheel, garismasa, crank, kickback, butang, bersambung.
 // The animation is a pure function of the local time (seconds since the screen appeared), which the location module passes in via api.tick().
 import { createScreen as baseCreateScreen } from './s1-kotak.screen.js';
-import { roundRect, TAU } from './s1-kotak.lib.js';
+import { roundRect, TAU, canvasTex } from './s1-kotak.lib.js';
 export { typeText, commonPrefix, parseCount, fmtCount, makeScreenTexture, buildMonitor } from './s1-kotak.screen.js';
 
 const SANS = '"Helvetica Neue", "Avenir Next", Arial, sans-serif';
@@ -13,13 +13,10 @@ const C = { bg: '#141a2e', panel: '#1d2440', ink: '#eef2ff', dim: '#8c97bb', cya
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const ease = (x) => { x = clamp(x); return x * x * (3 - 2 * x); };
 
-export function createScreen(opts = {}) {
-  const api = baseCreateScreen(opts);
-  const { W, H, tex, canvas } = api;
-  const g = canvas.getContext('2d');
-  const RIGHT = opts.compact ? 1420 : W - 40; // compact: keep content in the left ~70%
-  let cur = null, lt = 0;
 
+/** All drawing in one design space: 2048 x 1280, scene content in x 40..1420. g = a 2D context already transformed by the caller. */
+function makePainter(g) {
+  const W = 2048, H = 1280, RIGHT = 1420;
   // ---------------------------------------------------------------- helpers
   const rect = (x, y, w, h, c, r = 14) => { g.fillStyle = c; roundRect(g, x, y, w, h, r); g.fill(); };
   const circ = (x, y, r, c) => { g.fillStyle = c; g.beginPath(); g.arc(x, y, r, 0, TAU); g.fill(); };
@@ -209,7 +206,7 @@ export function createScreen(opts = {}) {
       void ax;
     },
     bersambung(s, t) {
-      g.fillStyle = 'rgba(0,0,0,.45)'; g.fillRect(0, 64, W, H - 64);
+      if (!s._full) { g.fillStyle = 'rgba(0,0,0,.45)'; g.fillRect(0, 64, W, H - 64); }
       const P = 1.8, u = t % P, hit = u < 0.35 ? 1 - u / 0.35 : 0;
       const a = -0.9 + (u < 0.35 ? -ease(1 - u / 0.35) * 1.6 : 0);
       const shake = Math.sin(t * 80) * 18 * hit;
@@ -231,29 +228,71 @@ export function createScreen(opts = {}) {
     },
   };
 
+  return { scene: (s, t) => (SCENES[s.anim] || SCENES.tajuk)(s, Math.max(0, t)), caption, chrome, fitText, text, rect };
+}
+
+export function createScreen(opts = {}) {
+  const api = baseCreateScreen(opts);
+  const { H, tex, canvas } = api;
+  const g = canvas.getContext('2d');
+  const P = makePainter(g);
+  let lt = 0;
   function drawAnim(s, t) {
     g.save(); g.globalAlpha = 1; g.shadowBlur = 0; g.setLineDash([]);
-    chrome(s.title || 'Evolusi Starter Motor');
+    P.chrome(s.title || 'Evolusi Starter Motor');
     if (opts.compact) { // the over-the-shoulder shots crop the left edge and hide the right: fit the scene into x 230..1250
       const k = (1250 - 230) / (1420 - 40), oy = 64 + ((H - 64) - (H - 90) * k) / 2;
       g.translate(230 - 40 * k, oy - 90 * k); g.scale(k, k);
     }
-    (SCENES[s.anim] || SCENES.tajuk)(s, Math.max(0, t));
-    caption(s.caption);
+    P.scene(s, t);
+    P.caption(s.caption);
     g.restore();
     tex.needsUpdate = true;
   }
-
   const baseDraw = api.draw;
-  api.draw = (state, o = {}) => {
-    cur = state;
-    if (state && state.type === 'anim') drawAnim(state, lt);
-    else baseDraw(state, o);
-  };
+  api.draw = (state, o = {}) => { if (state && state.type === 'anim') drawAnim(state, lt); else baseDraw(state, o); };
   /** per frame from the location: local time since the current screen appeared */
-  api.tick = (state, localT) => {
-    lt = localT;
-    if (state && state.type === 'anim') { cur = state; drawAnim(state, localT); }
-  };
+  api.tick = (state, localT) => { lt = localT; if (state && state.type === 'anim') drawAnim(state, localT); };
   return api;
+}
+
+/** Full-frame vertical (1080 x 1920) version of the same animations, for the "full" shot. draw(state, localT). */
+export function createFullScreen() {
+  const FW = 1080, FH = 1920;
+  const { tex, canvas, g } = canvasTex(FW, FH, null);
+  const P = makePainter(g);
+  let last = '';
+  function draw(s, t) {
+    const key = (s && s.anim) + '|' + t.toFixed(3);
+    if (key === last) return; last = key;
+    g.save(); g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.shadowBlur = 0; g.setLineDash([]);
+    const gr = g.createLinearGradient(0, 0, 0, FH); gr.addColorStop(0, '#1d2650'); gr.addColorStop(0.5, '#141a36'); gr.addColorStop(1, '#0b0f22');
+    g.fillStyle = gr; g.fillRect(0, 0, FW, FH);
+    // faint blueprint grid
+    g.strokeStyle = 'rgba(25,227,255,.07)'; g.lineWidth = 2;
+    for (let x = 0; x <= FW; x += 90) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, FH); g.stroke(); }
+    for (let y = 0; y <= FH; y += 90) { g.beginPath(); g.moveTo(0, y); g.lineTo(FW, y); g.stroke(); }
+    if (s.anim === 'bersambung') { g.fillStyle = 'rgba(0,0,0,.5)'; g.fillRect(0, 0, FW, FH); }
+    // title (top of the safe zone)
+    if (s.title) {
+      g.fillStyle = '#ffc23a'; roundRect(g, 90, 300, FW - 180, 8, 4); g.fill();
+      g.font = `900 92px ${HEAVY}`; let size = 92; while (g.measureText(s.title).width > FW - 160 && size > 40) { size -= 2; g.font = `900 ${size}px ${HEAVY}`; }
+      g.fillStyle = '#ffffff'; g.textAlign = 'center'; g.fillText(s.title, FW / 2, 420); g.textAlign = 'left';
+    }
+    // scene: design box x 40..1420, y 90..1240 scaled to the frame width, centred between title and caption
+    const k = (FW - 120) / 1380, top = 560;
+    g.save(); g.beginPath(); g.rect(0, top, FW, 1150 * k); g.clip();
+    g.translate(60 - 40 * k, top - 90 * k); g.scale(k, k);
+    P.scene({ ...s, _full: true }, t);
+    g.restore();
+    // caption (bottom of the safe zone)
+    if (s.caption) {
+      g.fillStyle = 'rgba(8,10,24,.85)'; roundRect(g, 60, 1480, FW - 120, 170, 40); g.fill();
+      g.font = `800 72px ${HEAVY}`; let size = 72; while (g.measureText(s.caption).width > FW - 200 && size > 36) { size -= 2; g.font = `800 ${size}px ${HEAVY}`; }
+      g.fillStyle = '#eef2ff'; g.textAlign = 'center'; g.fillText(s.caption, FW / 2, 1590); g.textAlign = 'left';
+    }
+    g.restore();
+    tex.needsUpdate = true;
+  }
+  return { tex, draw, W: FW, H: FH };
 }
