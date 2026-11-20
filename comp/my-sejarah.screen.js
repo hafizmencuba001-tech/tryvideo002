@@ -651,16 +651,16 @@ export function createFullScreen() {
       g.fillStyle = '#ffffff'; g.textAlign = 'center'; g.fillText(s.title, FW / 2, 420); g.textAlign = 'left';
     }
     // scene: design box x 40..1420, y 90..1240 scaled to the frame width, centred between title and caption
-    const k = (FW - 120) / 1380, top = 560;
+    const k = (FW - 120) / 1380, top = 470;
     g.save(); g.beginPath(); g.rect(0, top, FW, 1150 * k); g.clip();
     g.translate(60 - 40 * k, top - 90 * k); g.scale(k, k);
     P.scene({ ...s, _full: true }, t);
     g.restore();
     // caption (bottom of the safe zone)
     if (s.caption) {
-      g.fillStyle = 'rgba(8,10,24,.85)'; roundRect(g, 60, 1480, FW - 120, 170, 40); g.fill();
-      g.font = `800 72px ${HEAVY}`; let size = 72; while (g.measureText(s.caption).width > FW - 200 && size > 36) { size -= 2; g.font = `800 ${size}px ${HEAVY}`; }
-      g.fillStyle = '#eef2ff'; g.textAlign = 'center'; g.fillText(s.caption, FW / 2, 1590); g.textAlign = 'left';
+      g.fillStyle = 'rgba(8,10,24,.85)'; roundRect(g, 90, 1290, FW - 180, 120, 34); g.fill();
+      g.font = `800 58px ${HEAVY}`; let size = 58; while (g.measureText(s.caption).width > FW - 240 && size > 30) { size -= 2; g.font = `800 ${size}px ${HEAVY}`; }
+      g.fillStyle = '#ffc23a'; g.textAlign = 'center'; g.fillText(s.caption, FW / 2, 1370); g.textAlign = 'left';
     }
     g.restore();
     tex.needsUpdate = true;

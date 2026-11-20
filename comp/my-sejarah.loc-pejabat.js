@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { canvasTex } from './s1-kotak.lib.js';
 import * as base from './s1-kotak.loc-pejabat.js';
 import { createFullScreen } from './my-sejarah.screen.js';
+import { createOverlay } from './my-sejarah.overlay.js';
 export const screenOpts = base.screenOpts;
 
 const FULL_Z = 40, FULL_D = 5, FULL_FOV = 40, OVERSIZE = 1.04; // full-frame lines use no camera move, so the panel exactly fills the frame
@@ -71,17 +72,39 @@ export function build(ctx) {
   }
   drawClock(0);
 
+  // ---- overlay (subtitles, labels, watermark, end card) + extra sound effects ----
+  const ovl = tl.length && typeof document !== 'undefined' ? createOverlay(story, timing) : null;
+  if (tl.length && window.V && Array.isArray(window.V.sounds)) {
+    const dur = (timing && timing.dur) || 0, add = (src, at, vol, o = {}) => { if (at >= 0 && at < dur) window.V.sounds.push({ src: 'my-sejarah-sfx/' + src, at, vol, ...o }); };
+    // runs of consecutive lines that show the same screen
+    const runs = []; lines.forEach((l, i) => { if (!tl[i]) return; if (i === 0 || lines[i - 1].screen !== l.screen) runs.push({ sc: story.screens[l.screen], name: l.screen, a: tl[i].start }); });
+    runs.forEach((r, k) => { r.b = k + 1 < runs.length ? runs[k + 1].a : dur; });
+    for (const r of runs) {
+      const anim = r.sc && r.sc.anim, t0 = (r.sc && r.sc.t0) || 0, len = r.b - r.a;
+      if (anim === 'kickback') for (let n = 0; ; n++) { const kick = r.a + 1.5 + n * 3.4 - t0; if (kick >= r.b) break; add('ratchet.wav', Math.max(r.a, kick - 1.5), 0.22, { len: Math.min(1.5, kick - r.a) }); add('bang.wav', kick, 0.6); add('thump.wav', kick + 0.25, 0.5); }
+      if (anim === 'crank') add('ratchet.wav', r.a, 0.12, { loop: true, len, fi: 0.2, fo: 0.3 });
+      if (anim === 'flywheel_hidup') add('putt.wav', r.a, 0.4, { loop: true, len, fi: 0.15, fo: 0.4 });
+      if (anim === 'flywheel') for (let n = 0; r.a + n * 1.6 < r.b; n++) add('thump.wav', r.a + n * 1.6 + 0.1, 0.18);
+      if (anim === 'butang') for (let n = 0; r.a + 2.6 + n * 4.5 < r.b; n++) add('ding.wav', r.a + 2.6 + n * 4.5, 0.35);
+      if (anim === 'bersambung') {
+        for (let n = 0; r.a + n * 2.2 < r.b; n++) add('bang.wav', r.a + n * 2.2, r.sc.text === false ? 0.35 : 0.25);
+        if (r.sc.text !== false) for (let n = 0; r.a + n * 1.3 < r.b; n++) add('glitch.wav', r.a + n * 1.3, 0.3);
+      }
+    }
+  }
+
   const baseUpdate = L.update.bind(L);
   L.update = (t, S) => {
     baseUpdate(t, S);
     drawClock(t);
     const i = tl.length ? lineAt(t) : 0, sc = tl.length ? story.screens[lines[i].screen] : null;
     if (sc && sc.type === 'anim') {
-      const lt = t - runStart[i];
+      const lt = t - runStart[i] + (sc.t0 || 0);
       if (screen.tick) screen.tick(sc, lt);
       if (S.shot === 'full') full.draw(sc, lt);
     }
     panel.visible = S.shot === 'full';
+    if (ovl) ovl.update(t, S.shot);
     const d = Math.min(1, Math.max(0, (t - dimT) / 0.6));
     const f = 1 - 0.55 * d * d * (3 - 2 * d);
     for (const [o, k] of lights) o.intensity = k * f;

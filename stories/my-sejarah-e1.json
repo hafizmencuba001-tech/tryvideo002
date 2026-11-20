@@ -70,19 +70,41 @@
       "anim": "flywheel_hidup",
       "title": "Tahun 1886",
       "caption": "Enjin hidup, kereta boleh bergerak"
+    },
+    "coldopen": {
+      "type": "anim",
+      "anim": "kickback",
+      "title": "",
+      "caption": "Kenapa kereta dulu bahaya?",
+      "t0": 1.1
     }
   },
   "lines": [
     {
+      "who": null,
+      "dur": 2.2,
+      "beat": "cold open: the kickback moment",
+      "face": "neutral",
+      "listener": "neutral",
+      "shot": "full",
+      "screen": "coldopen",
+      "camera": "none"
+    },
+    {
       "who": "sejarah_asst",
-      "text": "Profesor! Saya nak tanya. Zaman dulu, kereta tak ada butang Start ke?",
+      "text": "Prof Hamzah! Saya nak tanya. Zaman dulu, kereta tak ada butang Start ke?",
       "delivery": "curious, puzzled",
       "face": "shocked",
       "listener": "neutral",
       "shot": "wide",
       "screen": "dashboard",
       "camera": "push_in",
-      "pause": 0.2
+      "pause": 0.2,
+      "sub": "Prof Hamzah! Saya nak tanya. Zaman dulu, kereta tak ada butang Start ke?",
+      "label": {
+        "name": "DR. DANIAL",
+        "role": "Penolong Profesor"
+      }
     },
     {
       "who": "sejarah_prof",
@@ -92,7 +114,12 @@
       "listener": "shocked",
       "shot": "prof",
       "screen": "dashboard",
-      "pause": 0.2
+      "pause": 0.2,
+      "sub": "Hahaha! Butang Start? Zaman dulu, nak hidupkan enjin pun bukan semudah itu!",
+      "label": {
+        "name": "PROF. HAMZAH",
+        "role": "Pakar Sejarah Automotif"
+      }
     },
     {
       "who": "sejarah_asst",
@@ -103,18 +130,20 @@
       "shot": "asst",
       "screen": "tajuk",
       "action": "type",
-      "pause": 0.4
+      "pause": 0.4,
+      "sub": "Jadi... kena tolak kereta sampai hidup?"
     },
     {
       "who": "sejarah_prof",
-      "text": "Mari kita kembali ke tahun lapan belas lapan puluh enam. Ketika itu, seorang jurutera Jerman memperkenalkan sebuah kereta bermotor, antara kereta petrol terawal dalam sejarah.",
+      "text": "Mari kembali ke tahun lapan belas lapan puluh enam. Seorang jurutera Jerman memperkenalkan antara kereta petrol terawal dalam sejarah.",
       "delivery": "storytelling, grand",
       "face": "happy",
       "listener": "neutral",
       "shot": "full",
       "screen": "y1886",
       "pause": 0.3,
-      "camera": "none"
+      "camera": "none",
+      "sub": "Mari kembali ke tahun 1886. Seorang jurutera Jerman memperkenalkan antara kereta petrol terawal dalam sejarah."
     },
     {
       "who": "sejarah_asst",
@@ -124,18 +153,20 @@
       "listener": "happy",
       "shot": "asst",
       "screen": "y1886",
-      "pause": 0.4
+      "pause": 0.4,
+      "sub": "Wah! Kereta zaman purba! Tapi macam mana enjinnya dihidupkan?"
     },
     {
       "who": "sejarah_prof",
-      "text": "Kereta ini belum menggunakan starter motor elektrik. Enjinnya dihidupkan dengan memutarkan flai wil secara manual!",
+      "text": "Belum ada starter motor elektrik. Enjinnya dihidupkan dengan memutar flai wil secara manual!",
       "delivery": "explaining, clear",
       "face": "neutral",
       "listener": "neutral",
       "shot": "full",
       "screen": "flywheel",
       "pause": 0.2,
-      "camera": "none"
+      "camera": "none",
+      "sub": "Belum ada starter motor elektrik. Enjinnya dihidupkan dengan memutar flywheel secara manual!"
     },
     {
       "who": "sejarah_asst",
@@ -145,7 +176,9 @@
       "listener": "happy",
       "shot": "asst",
       "screen": "flywheel",
-      "pause": 0.2
+      "pause": 0.2,
+      "sub": "Eh! Pusing roda itu dengan tangan? Bukan main kuat lagi nampaknya!",
+      "camera": "push_in"
     },
     {
       "who": "sejarah_prof",
@@ -156,18 +189,20 @@
       "shot": "full",
       "screen": "flywheel2",
       "pause": 0.4,
-      "camera": "none"
+      "camera": "none",
+      "sub": "Betul! Apabila enjin mula beroperasi, barulah kereta boleh bergerak."
     },
     {
       "who": "sejarah_prof",
-      "text": "Apabila kereta semakin berkembang, banyak model awal menggunakan kaedah lain pula. Antaranya ialah krenk hendel yang dipasang pada bahagian hadapan enjin.",
+      "text": "Kemudian, banyak kereta awal menggunakan krenk hendel di bahagian hadapan enjin.",
       "delivery": "storytelling",
       "face": "neutral",
       "listener": "neutral",
       "shot": "full",
       "screen": "garismasa",
       "pause": 0.2,
-      "camera": "none"
+      "camera": "none",
+      "sub": "Kemudian, banyak kereta awal menggunakan crank handle di bahagian hadapan enjin."
     },
     {
       "who": "sejarah_asst",
@@ -177,7 +212,8 @@
       "listener": "happy",
       "shot": "asst",
       "screen": "crank",
-      "pause": 0.1
+      "pause": 0.1,
+      "sub": "Oh! Jadi macam engkol manual?"
     },
     {
       "who": "sejarah_prof",
@@ -187,28 +223,31 @@
       "listener": "happy",
       "shot": "two",
       "screen": "crank",
-      "pause": 0.4
+      "pause": 0.4,
+      "sub": "Tepat sekali!"
     },
     {
       "who": "sejarah_asst",
-      "text": "Profesor! Saya baru cuba bayangkan. Kalau enjin tak hidup, kena pusing lagi?",
+      "text": "Prof! Saya baru cuba bayangkan. Kalau enjin tak hidup, kena pusing lagi?",
       "delivery": "tired, worried",
       "face": "annoyed",
       "listener": "happy",
-      "shot": "asst",
+      "shot": "wide",
       "screen": "crank",
-      "pause": 0.2
+      "pause": 0.2,
+      "sub": "Prof! Saya baru cuba bayangkan. Kalau enjin tak hidup, kena pusing lagi?"
     },
     {
       "who": "sejarah_prof",
-      "text": "Ya! Ia memerlukan tenaga, teknik dan kesabaran. Malah, krenk hendel boleh tersentak dengan kuat jika enjin mengalami kik bek!",
+      "text": "Ya! Perlu tenaga, teknik dan sabar. Malah, krenk hendel boleh tersentak kuat kalau berlaku kik bek!",
       "delivery": "serious, warning",
       "face": "annoyed",
       "listener": "shocked",
       "shot": "full",
       "screen": "bahaya",
       "pause": 0.2,
-      "camera": "none"
+      "camera": "none",
+      "sub": "Ya! Perlu tenaga, teknik dan sabar. Malah, crank handle boleh tersentak kuat kalau berlaku kickback!"
     },
     {
       "who": "sejarah_asst",
@@ -218,28 +257,35 @@
       "listener": "neutral",
       "shot": "asst",
       "screen": "bahaya",
-      "pause": 0.4
+      "pause": 0.4,
+      "sub": "Aduh! Bahaya juga!",
+      "camera": {
+        "move": "zoom_punch",
+        "at": 0.15
+      }
     },
     {
       "who": "sejarah_prof",
-      "text": "Itulah sebabnya manusia mula mencari cara yang lebih mudah dan selamat untuk menghidupkan enjin.",
+      "text": "Sebab itu manusia mula mencari cara yang lebih mudah dan selamat.",
       "delivery": "thoughtful",
       "face": "neutral",
       "listener": "neutral",
       "shot": "full",
       "screen": "soalan",
       "pause": 0.2,
-      "camera": "none"
+      "camera": "none",
+      "sub": "Sebab itu manusia mula mencari cara yang lebih mudah dan selamat."
     },
     {
       "who": "sejarah_asst",
-      "text": "Maksud Profesor, satu hari nanti kita boleh hidupkan kereta hanya dengan menekan butang?",
+      "text": "Maksud Prof, satu hari nanti kita boleh hidupkan kereta hanya dengan menekan butang?",
       "delivery": "hopeful, excited",
       "face": "happy",
       "listener": "happy",
-      "shot": "asst",
+      "shot": "two",
       "screen": "soalan",
-      "pause": 0.2
+      "pause": 0.2,
+      "sub": "Maksud Prof, satu hari nanti kita boleh hidupkan kereta hanya dengan menekan butang?"
     },
     {
       "who": "sejarah_prof",
@@ -249,7 +295,8 @@
       "listener": "neutral",
       "shot": "prof",
       "screen": "soalan",
-      "pause": 0.3
+      "pause": 0.3,
+      "sub": "Betul! Tetapi perjalanan untuk sampai ke situ bukan mudah."
     },
     {
       "who": null,
@@ -272,7 +319,12 @@
       "shot": "asst",
       "screen": "crankmalap",
       "pause": 0.2,
-      "lights": "dim"
+      "lights": "dim",
+      "sub": "Eh! Kenapa crank itu tersentak?!",
+      "camera": [
+        "push_in",
+        "handheld"
+      ]
     },
     {
       "who": "sejarah_prof",
@@ -284,7 +336,8 @@
       "screen": "crankmalap",
       "camera": "push_in",
       "pause": 0.2,
-      "lights": "dim"
+      "lights": "dim",
+      "sub": "Itulah bahaya yang bakal kita bongkar dalam bahagian seterusnya!"
     },
     {
       "who": "sejarah_asst",
@@ -295,11 +348,16 @@
       "shot": "asst",
       "screen": "crankmalap",
       "pause": 0.3,
-      "lights": "dim"
+      "lights": "dim",
+      "sub": "Alamak! Saya rasa lebih baik saya guna butang Start sahaja!",
+      "camera": {
+        "move": "zoom_punch",
+        "at": 0.3
+      }
     },
     {
       "who": null,
-      "dur": 2.4,
+      "dur": 3.0,
       "beat": "end card: BERSAMBUNG - Part 2: Bahaya Crank Handle!",
       "face": "neutral",
       "listener": "shocked",
