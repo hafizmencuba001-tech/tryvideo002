@@ -57,6 +57,18 @@ Baca fail ni dulu bila sambung projek. Pemilik projek bercakap Bahasa Melayu san
 - Baris: `sub` (teks sari kata, ejaan betul), `label` `{name, role}`, `lights: "dim"`.
 - Skrin `anim`: `anim`, `title`, `caption`, `t0` (anjakan masa mula), `text` (untuk `bersambung`).
 
+## Cara render (pemilik cuma ada phone)
+
+Render tidak guna phone. Ia berjalan di server. Phone hanya untuk chat, tekan butang, dan muat turun MP4.
+
+- **Kelajuan di server cloud Claude:** lebih kurang 2.9 saat setiap frame (tiada GPU, rendering perisian). Video 90 s ada 2,727 frame, jadi render ambil lebih kurang **2 jam 10 minit**. Diukur pada 20 Nov 2026.
+- **Pilihan 1 (cuba dulu): render di server sesi Claude.** Jalankan di latar belakang (`npm run video -- my-sejarah-e1`), kemudian hantar MP4 kepada pemilik dalam chat. Risiko: sesi boleh ditutup kalau lama tiada aktiviti, dan had masa tugasan latar belakang lebih kurang 2 jam, betul-betul kat had. Kalau terputus, guna Pilihan 2.
+- **Pilihan 2 (lebih stabil, percuma): GitHub Actions.** Repo private dapat 2,000 minit percuma sebulan; satu episod lebih kurang 130 minit, jadi muat lebih kurang 15 episod sebulan. Perlu disediakan:
+  - Fail workflow `.github/workflows/render.yml`: jalan secara manual (`workflow_dispatch`, input story id) di `ubuntu-latest`, dengan langkah setup Node 22, `npm ci`, `npm run video -- <id>`, dan muat naik `out/<id>.mp4` sebagai artifact.
+  - Pemilik tambah `GEMINI_API_KEY` sebagai rahsia repo (Settings → Secrets and variables → Actions). Workflow set `VOICE_PROVIDER=gemini`.
+  - Pemilik tekan "Run workflow" dalam app atau web GitHub, kemudian muat turun MP4 dari bahagian Artifacts.
+  - Belum disediakan. Buat bila Pilihan 1 gagal atau bila episod dah kerap.
+
 ## Pelan suara (bajet RM0)
 
 Pemilik mahu monetize channel tetapi tiada bajet untuk pelan suara berbayar.
