@@ -57,6 +57,24 @@ Baca fail ni dulu bila sambung projek. Pemilik projek bercakap Bahasa Melayu san
 - Baris: `sub` (teks sari kata, ejaan betul), `label` `{name, role}`, `lights: "dim"`.
 - Skrin `anim`: `anim`, `title`, `caption`, `t0` (anjakan masa mula), `text` (untuk `bersambung`).
 
+## Pelan suara (bajet RM0)
+
+Pemilik mahu monetize channel tetapi tiada bajet untuk pelan suara berbayar.
+
+1. **Sekarang: Gemini percuma.** Pemboleh ubah persekitaran `GEMINI_API_KEY` dan `VOICE_PROVIDER=gemini`. Suara watak dah ditetapkan dalam `library/my-sejarah/cast.json` (Prof. Hamzah = Charon, Dr. Danial = Puck). Kuota harian terhad; baris yang dah siap disimpan, jadi boleh sambung esok.
+2. **Bila hampir layak monetize: suara sendiri, dirakam terus (bukan klon).** Percuma dan paling selamat untuk monetize. Pemilik rakam setiap baris dengan telefon. Claude potong setiap baris, buang bunyi bising, seimbangkan kekuatan, dan letak sebagai `comp/vo/<id>/NN.wav`. Pemilik boleh suarakan dua-dua watak; suara Dr. Danial dinaikkan sedikit dengan ffmpeg supaya berbeza daripada Prof. Hamzah. Sari kata ikut masa suara sebenar.
+3. **Bila channel dah dapat duit:** pertimbangkan Gemini berbayar (bil diaktifkan, sangat murah) atau ElevenLabs Starter (lebih kurang USD 5–6 sebulan, lesen komersial jelas, ada klon suara).
+
+**Elakkan untuk video yang dimonetize:**
+- ElevenLabs pelan percuma (bukan komersial dan perlu atribusi).
+- Model klon suara sumber terbuka seperti XTTS dan F5-TTS (kebanyakan berlesen bukan komersial).
+
+**Syarat platform (semak semula sebelum mohon monetize, polisi selalu berubah):**
+- YouTube tak larang suara AI. Yang tak dibenarkan ialah kandungan templat yang diulang atau dibaca dari kandungan orang lain. Pastikan setiap episod betul-betul asli.
+- Label AI wajib hanya untuk kandungan realistik. Hidupkan label pun tak rugi.
+- Creator Rewards TikTok dilaporkan belum dibuka untuk Malaysia. YouTube lebih sesuai untuk monetize.
+- Tanya PandaiTech tentang penggunaan enjin mereka untuk channel komersial.
+
 ## Idea seterusnya
 
 - Part 2: "Bahaya Crank Handle" (kickback dan kecederaan), kemudian kelahiran starter motor elektrik (1912).
