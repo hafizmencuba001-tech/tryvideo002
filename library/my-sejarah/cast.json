@@ -1,0 +1,12 @@
+{
+  "sejarah_prof": {
+    "name": "Professor",
+    "voice": "Charon",
+    "style": "Voice of a warm, wise senior history professor cartoon character, deep calm voice, storytelling, amused and enthusiastic, casual Malaysian Malay"
+  },
+  "sejarah_asst": {
+    "name": "Assistant Professor",
+    "voice": "Puck",
+    "style": "Voice of a young, curious assistant professor cartoon character, bright upbeat voice, eager and easily amazed, casual Malaysian Malay"
+  }
+}

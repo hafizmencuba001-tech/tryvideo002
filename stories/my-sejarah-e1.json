@@ -1,0 +1,68 @@
+{
+  "id": "my-sejarah-e1",
+  "setup": "my-sejarah",
+  "title": "Evolusi Starter Motor - Part 1: Sebelum Starter Motor Wujud",
+  "location": "pejabat",
+  "camera_style": "calm",
+  "lesson": "Sebelum starter motor elektrik, enjin dihidupkan dengan tangan: flywheel (1886), kemudian crank handle, yang boleh tersentak (kickback).",
+  "screens": {
+    "kosong": { "type": "doc", "title": "Evolusi Starter Motor", "body": "" },
+    "tajuk": { "type": "doc", "title": "Evolusi Starter Motor", "body": "Part 1: Sebelum starter motor wujud." },
+    "y1886": { "type": "doc", "title": "Tahun 1886", "body": "Benz Patent-Motorwagen: antara kereta petrol terawal dalam sejarah." },
+    "flywheel": { "type": "doc", "title": "Tahun 1886", "body": "Tiada starter motor elektrik. Enjin dihidupkan dengan memutar flywheel secara manual." },
+    "crank": { "type": "doc", "title": "Awal 1900-an", "body": "Crank handle dipasang di bahagian hadapan enjin. Putar dengan tangan sampai enjin hidup." },
+    "bahaya": { "type": "doc", "title": "Awal 1900-an", "body": "Perlu tenaga, teknik dan kesabaran. Bahaya: kickback! Crank handle boleh tersentak dengan kuat." },
+    "soalan": { "type": "doc", "title": "Persoalan Besar", "body": "Bagaimana nak hidupkan enjin dengan lebih mudah dan selamat? Satu butang?" },
+    "bersambung": { "type": "doc", "title": "BERSAMBUNG", "body": "PART 2: BAHAYA CRANK HANDLE!" }
+  },
+  "lines": [
+    { "who": "sejarah_asst", "text": "Profesor! Saya nak tanya. Zaman dulu, kereta tak ada butang Start ke?", "delivery": "curious, puzzled",
+      "face": "shocked", "listener": "neutral", "shot": "wide", "screen": "kosong", "camera": "push_in", "pause": 0.2 },
+    { "who": "sejarah_prof", "text": "Ha ha ha! Butang Start? Zaman dulu, nak hidupkan enjin pun bukan semudah itu!", "delivery": "hearty laugh, amused",
+      "face": "happy", "listener": "shocked", "shot": "prof", "screen": "kosong", "pause": 0.2 },
+    { "who": "sejarah_asst", "text": "Jadi... kena tolak kereta sampai hidup?", "delivery": "unsure, half joking",
+      "face": "neutral", "listener": "happy", "shot": "asst", "screen": "tajuk", "action": "type", "pause": 0.4 },
+
+    { "who": "sejarah_prof", "text": "Mari kita kembali ke tahun lapan belas lapan puluh enam. Ketika itu, Karl Bens memperkenalkan Patent Motorvagen, antara kereta petrol terawal dalam sejarah.", "delivery": "storytelling, grand",
+      "face": "happy", "listener": "neutral", "shot": "two", "screen": "y1886", "action": "point_screen", "pause": 0.3 },
+    { "who": "sejarah_asst", "text": "Wah! Kereta zaman purba! Tapi macam mana enjinnya dihidupkan?", "delivery": "amazed, eager",
+      "face": "happy", "listener": "happy", "shot": "asst", "screen": "y1886", "pause": 0.4 },
+
+    { "who": "sejarah_prof", "text": "Kereta ini belum menggunakan starter motor elektrik. Enjinnya dihidupkan dengan memutarkan flai wil secara manual!", "delivery": "explaining, clear",
+      "face": "neutral", "listener": "neutral", "shot": "ots_screen", "screen": "flywheel", "action": "boss_types", "pause": 0.2 },
+    { "who": "sejarah_asst", "text": "Eh! Pusing roda itu dengan tangan? Bukan main kuat lagi nampaknya!", "delivery": "surprised, impressed",
+      "face": "shocked", "listener": "happy", "shot": "asst", "screen": "flywheel", "pause": 0.2 },
+    { "who": "sejarah_prof", "text": "Betul! Apabila enjin mula beroperasi, barulah kereta boleh bergerak.", "delivery": "warm, nodding",
+      "face": "happy", "listener": "neutral", "shot": "prof", "screen": "flywheel", "pause": 0.4 },
+
+    { "who": "sejarah_prof", "text": "Apabila kereta semakin berkembang, banyak model awal menggunakan kaedah lain pula. Antaranya ialah krenk hendel yang dipasang pada bahagian hadapan enjin.", "delivery": "storytelling",
+      "face": "neutral", "listener": "neutral", "shot": "two", "screen": "crank", "action": "point_screen", "pause": 0.2 },
+    { "who": "sejarah_asst", "text": "Oh! Jadi macam engkol manual?", "delivery": "realising",
+      "face": "happy", "listener": "happy", "shot": "asst", "screen": "crank", "pause": 0.1 },
+    { "who": "sejarah_prof", "text": "Tepat sekali!", "delivery": "proud, crisp",
+      "face": "happy", "listener": "happy", "shot": "prof", "screen": "crank", "pause": 0.4 },
+
+    { "who": "sejarah_asst", "text": "Profesor! Saya baru cuba bayangkan. Kalau enjin tak hidup, kena pusing lagi?", "delivery": "tired, worried",
+      "face": "annoyed", "listener": "happy", "shot": "asst", "screen": "crank", "pause": 0.2 },
+    { "who": "sejarah_prof", "text": "Ya! Ia memerlukan tenaga, teknik dan kesabaran. Malah, krenk hendel boleh tersentak dengan kuat jika enjin mengalami kik bek!", "delivery": "serious, warning",
+      "face": "annoyed", "listener": "shocked", "shot": "ots_screen", "screen": "bahaya", "action": "boss_types", "pause": 0.2 },
+    { "who": "sejarah_asst", "text": "Aduh! Bahaya juga!", "delivery": "wincing",
+      "face": "shocked", "listener": "neutral", "shot": "asst", "screen": "bahaya", "pause": 0.4 },
+
+    { "who": "sejarah_prof", "text": "Itulah sebabnya manusia mula mencari cara yang lebih mudah dan selamat untuk menghidupkan enjin.", "delivery": "thoughtful",
+      "face": "neutral", "listener": "neutral", "shot": "two", "screen": "soalan", "action": "point_screen", "pause": 0.2 },
+    { "who": "sejarah_asst", "text": "Maksud Profesor, satu hari nanti kita boleh hidupkan kereta hanya dengan menekan butang?", "delivery": "hopeful, excited",
+      "face": "happy", "listener": "happy", "shot": "asst", "screen": "soalan", "pause": 0.2 },
+    { "who": "sejarah_prof", "text": "Betul! Tetapi perjalanan untuk sampai ke situ bukan mudah.", "delivery": "mysterious, slow",
+      "face": "neutral", "listener": "neutral", "shot": "prof", "screen": "soalan", "pause": 0.3 },
+
+    { "who": null, "dur": 1.6, "beat": "sudden mechanical bang: the professor slams the desk, both jump",
+      "face": "annoyed", "listener": "shocked", "shot": "wide", "screen": "bahaya", "action": "slam_desk", "camera": ["zoom_punch", "handheld"] },
+    { "who": "sejarah_asst", "text": "Eh! Kenapa krenk itu tersentak?!", "delivery": "startled, loud",
+      "face": "shocked", "listener": "shocked", "shot": "asst", "screen": "bahaya", "pause": 0.2 },
+    { "who": "sejarah_prof", "text": "Itulah bahaya yang bakal kita bongkar dalam bahagian seterusnya!", "delivery": "dramatic, teasing",
+      "face": "happy", "listener": "shocked", "shot": "prof", "screen": "bahaya", "camera": "push_in", "pause": 0.2 },
+    { "who": "sejarah_asst", "text": "Alamak! Saya rasa lebih baik saya guna butang Start sahaja!", "delivery": "panicked, funny",
+      "face": "shocked", "listener": "happy", "shot": "ots_screen", "screen": "bersambung", "action": "type", "pause": 1.0 }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "my-sejarah-test",
+  "setup": "my-sejarah",
+  "title": "Ujian watak",
+  "location": "pejabat",
+  "screens": { "a": { "type": "doc", "title": "Evolusi Starter Motor", "body": "Part 1: Sebelum starter motor wujud." } },
+  "lines": [
+    { "who": "sejarah_prof", "text": "Mari kita kembali ke tahun lapan belas lapan puluh enam.", "face": "happy", "listener": "neutral", "shot": "wide", "screen": "a", "action": "point_screen", "pause": 0.3 },
+    { "who": "sejarah_asst", "text": "Wah, kereta zaman purba!", "face": "neutral", "listener": "happy", "shot": "asst", "screen": "a", "pause": 0.3 }
+  ]
+}
